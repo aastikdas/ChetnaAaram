@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ChetnaAaram-backend
+    env: node
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: MONGO_URI
+        value: ${MONGO_URI}
+      - key: CLIENT_URL
+        value: ${CLIENT_URL}
