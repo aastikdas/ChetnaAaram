@@ -35,14 +35,7 @@ app.use('/api/bot', botRoutes);
 app.use('/api/debug', debugRoutes);
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 
-// Serve frontend build (only after API routes are registered). Vite outputs to
-// `dist` by default, so serve `frontend/dist` in production.
-const __dirname = path.resolve();
-const frontendDist = path.join(__dirname, 'frontend', 'dist');
-app.use(express.static(frontendDist));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'));
-});
+
 io.on('connection', (socket) => {
   console.log('socket connected', socket.id);
   socket.on('join', ({ userId }) => {
