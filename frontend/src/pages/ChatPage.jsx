@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import {toast} from 'react-hot-toast';
 import { SocketContext } from '../context/SocketProvider';
 export default function ChatPage({ user }){
  
